@@ -13,6 +13,18 @@
 
 Some example gas reporter option settings for different use-cases
 
+### Ethereum Mainnet
+
+*...with live market pricing*
+```ts
+const config: HardhatUserConfig = {
+  gasReporter: {
+    L1Etherscan: "ABC...",    // Etherscan api key
+    coinmarketcap: "abc...",  // Coinmarketcap api key
+  }
+}
+```
+
 ### L1 Network
 
 *...on a non-ethereum network with very low costs*
@@ -33,6 +45,7 @@ const config: HardhatUserConfig = {
 const config: HardhatUserConfig = {
   gasReporter: {
     L2: "optimism",
+    L1Etherscan: "ABC...",   // Requires api keys for both Ethereum Mainnet and Optimism
     L2Etherscan: "ABC...",
     currency: "EUR",
     coinmarketcap: "abc...",
@@ -149,7 +162,7 @@ const config: HardhatUserConfig = {
 
 ## Proxy Resolvers
 
-Some contract systems route calls through proxies (for upgradeability or other reasons) which means the reporter can't know which contract is the target of a transaction without additional help. The `proxyResolver` option lets you define a custom class to help resolve these unindentified method calls.
+Some contract systems route calls through proxies (for upgradeability or other reasons) which means the reporter can't know which contract is the target of a transaction without additional help. The `proxyResolver` option lets you define a custom class to help resolve these unidentified method calls.
 
 There are two examples in the code base here to use as templates if you're writing your own:
 
